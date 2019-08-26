@@ -14,7 +14,8 @@ exports.up = function(knex) {
         .createTable('receipts', tbl => {
             tbl.increments();
             tbl.dateTime('date')
-                .notNullable();
+                .notNullable()
+            //     .defaultTo(knex.fn.now(6))
             tbl.integer('amount-spent')
                 .notNullable();
             tbl.string('category', 100)
