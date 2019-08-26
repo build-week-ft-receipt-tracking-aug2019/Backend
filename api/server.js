@@ -7,7 +7,7 @@ const server = express();
 const logger = (req, res, next) => {
     console.log(`${req.method} request was made to ${req.url}`)
     next();
-}
+};
 
 server.use(helmet());
 server.use(cors());
