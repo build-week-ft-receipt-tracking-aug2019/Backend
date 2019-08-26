@@ -1,0 +1,25 @@
+const router = require('express').Router();
+
+const Receipts = require('./receipts-model');
+
+router.get('/:username', (req, res) => {
+    const username = req.params.username;
+
+    Receipts.getReceipts(username)
+        .then(receipts => res.status(200).json(receipts))
+        .catch(err => res.status(500).json({ error: err }));
+});
+
+router.post('/receipt', (req, res) => {
+    const receipt = req.body;
+
+    if(receipt.date && receipt.amount_spent && receipt.category && receipt.merchant && receipt.user_username) {
+        Receipts.postReceipt(receipt)
+            .then(id => res.status(201).json(receipt))
+            .catch(err => res.status(500).json({ error: err }));
+    } else {
+        res.status(400).json({ error: "Please provide all required fields." })
+    }
+})
+
+module.exports = router;

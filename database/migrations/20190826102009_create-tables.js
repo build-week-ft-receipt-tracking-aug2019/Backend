@@ -13,19 +13,18 @@ exports.up = function(knex) {
         })
         .createTable('receipts', tbl => {
             tbl.increments();
-            tbl.dateTime('date')
+            tbl.string('date')
                 .notNullable()
-            //     .defaultTo(knex.fn.now(6))
-            tbl.integer('amount-spent')
+            tbl.integer('amount_spent')
                 .notNullable();
             tbl.string('category', 100)
                 .notNullable();
             tbl.string('merchant', 100)
                 .notNullable();
-            tbl.integer('user_id')
+            tbl.string('user_username')
                 .unsigned()
                 .notNullable()
-                .references('id')
+                .references('username')
                 .inTable('users')
                 .onUpdate('CASCADE')
                 .onDelete('CASCADE');

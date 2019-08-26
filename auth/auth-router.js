@@ -13,7 +13,13 @@ router.post('/register', (req, res) => {
     if(user.username && user.email && user.password) {
         Users.register(user)
             .then(id => res.status(201).json(user))
-            .catch(err => res.status(500).json({ error: err }));
+            .catch(err => {
+                if(err.code === 'SQLITE_CONSTRAINT') {
+                    res.status(400).json({ error: "That username or email is already in use." })
+                } else {
+                    res.status(500).json({ error: err })
+                };
+            });
     } else {
         res.status(400).json({ error: "Please provide username, email, and password." });
     };
@@ -37,10 +43,6 @@ router.post('/login', (req, res) => {
         })
         .catch(err => res.status(500).json({ error: err }));
 });
-
-router.post('/logout', (req, res) => {
-    
-})
 
 function generateToken(user) {
     const payload = {
