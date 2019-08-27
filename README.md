@@ -66,7 +66,6 @@ Success - 200 Status Code
 Failure - 401 Status Code (When user is not logged in)
 > Response: { error: "You need to log in first" }
 
-============================================================================
 
 `DELETE` to `/users/receipt/:id` expects no body, but a header key/value pair of:
 
@@ -77,3 +76,21 @@ Success - 201 Status Code
 
 Failure - 404 Status Code (When attempting to delete receipt with id that does not exist)
 > Response: { error: "Receipt with that ID does not exist." }
+
+
+`PUT` to `/users/receipt/:id` expects a body of:
+
+```
+{
+     date: "Aug 26, 2019 1:25 PM",
+     amount_spent: 1337.28,
+     category: "Electronics",
+     merchant: "Dell"
+}
+```
+
+Success - 201 Status Code
+> Response: 1 (Number of receipts changed)
+
+Failure - 400 Status Code (When missing required fields)
+> Response: { error: "Please provide all required fields." }
