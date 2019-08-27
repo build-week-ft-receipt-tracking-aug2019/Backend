@@ -19,6 +19,7 @@ Failure - 400 Status Code (When attempting to register a user that already exist
 Failure - 400 Status Code (When leaving out any of the required fields) 
 > Response: { error: "Please provide username, email, and password." }
 
+---
 
 `POST` to `/login` expects a body of:
 
@@ -36,6 +37,7 @@ Success - 201 Status Code
 Failure - 400 Status Code (When attempting to login with wrong credentials)
 > Response: { error: "Invalid credentials!" }
 
+---
 
 `POST` to `/users/receipts` expects a body of:
 
@@ -55,6 +57,7 @@ Success - 201 Status Code
 Failure - 401 Status Code (When missing required fields)
 > Response: { error: "Please provide all required fields." }
 
+---
 
 `GET` to `/users/receipts` expects no body, but a header key/value pair of:
 
@@ -66,6 +69,7 @@ Success - 200 Status Code
 Failure - 401 Status Code (When user is not logged in)
 > Response: { error: "You need to log in first" }
 
+---
 
 `DELETE` to `/users/receipt/:id` expects no body, but a header key/value pair of:
 
@@ -77,6 +81,7 @@ Success - 201 Status Code
 Failure - 404 Status Code (When attempting to delete receipt with id that does not exist)
 > Response: { error: "Receipt with that ID does not exist." }
 
+---
 
 `PUT` to `/users/receipt/:id` expects a body of:
 
