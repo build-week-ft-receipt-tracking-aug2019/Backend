@@ -21,6 +21,7 @@ exports.up = function(knex) {
                 .notNullable();
             tbl.string('merchant', 100)
                 .notNullable();
+            tbl.string('image', 255)
             tbl.string('user_username')
                 .unsigned()
                 .notNullable()

@@ -18,6 +18,6 @@ server.use(express.json());
 server.use(logger);
 
 server.use('/', authRouter);
-server.use('/', restricted, receiptRouter);
+server.use('/users', restricted, receiptRouter);
 
 module.exports = server;
