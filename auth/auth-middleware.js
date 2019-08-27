@@ -13,6 +13,6 @@ module.exports = (req, res, next) => {
       }
     })
   } else {
-    res.status(401).json({ error: "You need to log in first, fool." })
+    res.status(401).json({ error: "You need to log in first." })
   }
 };

@@ -15,7 +15,7 @@ router.post('/receipt', (req, res) => {
 
     if(receipt.date && receipt.amount_spent && receipt.category && receipt.merchant && receipt.user_username) {
         Receipts.postReceipt(receipt)
-            .then(id => res.status(201).json(receipt))
+            .then(id => res.status(201).json(id))
             .catch(err => res.status(500).json({ error: err }));
     } else {
         res.status(400).json({ error: "Please provide all required fields." })
