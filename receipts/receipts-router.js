@@ -2,10 +2,12 @@ const router = require('express').Router();
 
 const Receipts = require('./receipts-model');
 
-router.get('/:username', (req, res) => {
-    const username = req.params.username;
+router.get('/receipts', (req, res) => {
+    // const username = req.params.username;
+    const token = req.decodedToken;
+    console.log(token);
 
-    Receipts.getReceipts(username)
+    Receipts.getReceipts(token)
         .then(receipts => res.status(200).json(receipts))
         .catch(err => res.status(500).json({ error: err }));
 });
