@@ -4,9 +4,9 @@
 
 ```
 { 
-     username: 'some-username', 
-     email: 'someemail@email.com', 
-     password: 'someP4ssw0rd' 
+     username: "some-username", 
+     email: "someemail@email.com", 
+     password: "someP4ssw0rd" 
 }
 ```
 
@@ -24,14 +24,14 @@ Failure - 400 Status Code (When leaving out any of the required fields)
 
 ```
 { 
-     username: 'some-username', 
-     email: 'someemail@email.com', 
-     password: 'someP4ssw0rd' 
+     username: "some-username", 
+     email: "someemail@email.com", 
+     password: "someP4ssw0rd" 
 }
 ```
 
 Success - 201 Status Code
-> Response: { message: "User *username* successfully logged in!", token: 'superLongTokenString' }
+> Response: { message: "User *username* successfully logged in!", token: "superLongTokenString" }
 
 Failure - 400 Status Code (When attempting to login with wrong credentials)
 > Response: { error: "Invalid credentials!" }
@@ -41,11 +41,11 @@ Failure - 400 Status Code (When attempting to login with wrong credentials)
 
 ```
 {
-     date: 'Aug 26, 2019 1:25 PM',
+     date: "Aug 26, 2019 1:25 PM",
      amount_spent: 1337.28,
-     category: 'Electronics',
-     merchant: 'Dell',
-     user_username: 'some-username'
+     category: "Electronics",
+     merchant: "Dell",
+     user_username: "some-username"
 }
 ```
 
@@ -58,7 +58,7 @@ Failure - 401 Status Code (When missing required fields)
 
 `GET` to `/users/receipts` expects no body, but a header key/value pair of:
 
-`{ authorization: 'superLongTokenString' }`
+`{ authorization: "superLongTokenString" }`
 
 Success - 200 Status Code
 > Response: [ { receipt }, { receipt }, { receipt } ]
