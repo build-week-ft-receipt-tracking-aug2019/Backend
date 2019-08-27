@@ -12,7 +12,7 @@ router.post('/register', (req, res) => {
 
     if(user.username && user.email && user.password) {
         Users.register(user)
-            .then(id => res.status(201).json(user))
+            .then(id => res.status(201).json(id))
             .catch(err => {
                 if(err.code === 'SQLITE_CONSTRAINT') {
                     res.status(400).json({ error: "That username or email is already in use." })
