@@ -56,7 +56,7 @@ Failure - 401 Status Code (When missing required fields)
 > Response: { error: "Please provide all required fields." }
 
 
-`GET` to `/users/:username` expects no body, but a header key/value pair of:
+`GET` to `/users/receipts` expects no body, but a header key/value pair of:
 
 `{ authorization: 'superLongTokenString' }`
 
