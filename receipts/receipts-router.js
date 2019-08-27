@@ -3,9 +3,7 @@ const router = require('express').Router();
 const Receipts = require('./receipts-model');
 
 router.get('/receipts', (req, res) => {
-    // const username = req.params.username;
     const token = req.decodedToken;
-    console.log(token);
 
     Receipts.getReceipts(token)
         .then(receipts => res.status(200).json(receipts))
@@ -22,6 +20,17 @@ router.post('/receipt', (req, res) => {
     } else {
         res.status(400).json({ error: "Please provide all required fields." })
     }
-})
+});
+
+router.delete('/receipt/:id', (req, res) => {
+    const id = req.params.id;
+
+    Receipts.deleteReceipt(id)
+        .then(id => {
+            if(id) res.status(201).json(id);
+            res.status(404).json({ error: "Receipt with that id does not exist." });
+        })
+        .catch(err => res.status(500).json({ error: err }));
+});
 
 module.exports = router;

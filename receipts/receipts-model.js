@@ -2,7 +2,8 @@ const db = require('../database/db-config');
 
 module.exports = {
     getReceipts,
-    postReceipt
+    postReceipt,
+    deleteReceipt
 };
 
 function getReceipts(username) {
@@ -15,4 +16,10 @@ function getReceipts(username) {
 function postReceipt(receipt) {
     return db('receipts')
         .insert(receipt);
+};
+
+function deleteReceipt(id) {
+    return db('receipts')
+        .where({ id })
+        .delete()
 };

@@ -65,3 +65,15 @@ Success - 200 Status Code
 
 Failure - 401 Status Code (When user is not logged in)
 > Response: { error: "You need to log in first" }
+
+============================================================================
+
+`DELETE` to `/users/receipt/:id` expects no body, but a header key/value pair of:
+
+`{ authorization: "superLongTokenString" }`
+
+Success - 201 Status Code
+> Response: 1 (Number of receipts deleted)
+
+Failure - 404 Status Code (When attempting to delete receipt with id that does not exist)
+> Response: { error: "Receipt with that ID does not exist." }
