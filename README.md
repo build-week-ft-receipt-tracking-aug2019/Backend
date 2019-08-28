@@ -39,7 +39,7 @@ Failure - 400 Status Code (When attempting to login with wrong credentials)
 
 ---
 
-`POST` to `/users/receipts` expects a body of:
+`POST` to `/users/receipt` expects a body of:
 
 ```
 {
